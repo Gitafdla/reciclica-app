@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-button slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-button>
+    <ion-title>Pickup Call</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Google_maps_screenshot.png/300px-Google_maps_screenshot.png"/>
+  <ion-card>
+    <ion-card-content>
+      <p>Address: Spain without S</p>
+      <p>Complement: Apto 222</p>
+      <p>Neigborhood: Neigborhood</p>
+      <p>Zip Code: 505616</p>
+      <p>City Name: city</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item lines="inset">
+      <ion-label position="floating">Notes</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button size="full" color="success" (click)="newPickupCall()">Create Pickup Call</ion-button>
+</ion-content>
