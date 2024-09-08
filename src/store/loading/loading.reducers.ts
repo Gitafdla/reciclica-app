@@ -4,12 +4,14 @@ import { LoadingState } from "./LoadingState";
 
 const initialState: LoadingState = {
   show: false
+  // Loading tidak muncul ketika aplikasi pertama dijalankan
 }
 
 const reducer = createReducer(
   initialState,
   on(show, () => {
     return {show: true};
+    // state harus diubah ketika aksi show dipanggil.
 
   }),
   on(hide, () => {

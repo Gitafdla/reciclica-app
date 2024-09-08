@@ -16,41 +16,45 @@ describe('ErrorMessageComponent', () => {
 
     fixture = TestBed.createComponent(ErrorMessageComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   }));
+
   it('should show error message on field touched and error present', () => {
-    component.field = new FormGroup({anyError: new FormControl()})
+    component.field = new FormGroup({anyField: new FormControl});
 
     component.field.markAsTouched();
+
     component.field.setErrors({anyError: true});
-    component.error = "anyError"
+    component.error = 'anyError';
 
     expect(component.shouldShowComponent()).toBeTruthy();
   })
 
-  it('should hide error message on field not touched', () => {
-    component.field = new FormGroup({anyError: new FormControl()})
+  it('should hide error message on field untouched', () => {
+    component.field = new FormGroup({anyField: new FormControl});
+
 
     component.field.setErrors({anyError: true});
-    component.error = "anyError"
+    component.error = 'anyError';
 
     expect(component.shouldShowComponent()).toBeFalsy();
   })
 
   it('should hide error message on field touched, but no errors', () => {
-    component.field = new FormGroup({anyError: new FormControl()})
+    component.field = new FormGroup({anyField: new FormControl});
 
     component.field.markAsTouched();
-    component.error = "anyError"
+    component.error = 'anyError';
 
     expect(component.shouldShowComponent()).toBeFalsy();
   })
 
-  it('should be hide error message on field touched and has error, but it is a different error', () => {
-    component.field = new FormGroup({anyError: new FormControl()})
+  it('should hide error message on field touched and has error, but it is a different error', () => {
+    component.field = new FormGroup({anyField: new FormControl});
 
     component.field.markAsTouched();
     component.field.setErrors({anyError: true});
-    component.error = "anotherError"
+    component.error = 'anotherError';
 
     expect(component.shouldShowComponent()).toBeFalsy();
   })

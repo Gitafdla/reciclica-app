@@ -4,6 +4,7 @@ import { AppInitialState } from "../AppInitialState";
 import { recoverPassword, recoverPasswordSuccess, recoverPasswordFail } from "./login.actions";
 import { loginReducer } from "./login.reducers";
 import { LoginState } from "./LoginState";
+import { login, loginFail, loginSuccess } from "./login.actions";
 import { User } from "src/app/model/user/User";
 // import {login}
 
@@ -50,14 +51,14 @@ describe("Login store", () => {
       ...initialState,
       error: null,
       isLoggedIn: false,
-      isLoggingIn: true
+      isLogginIn: true
     })
   })
 
   it('loginSuccess', () => {
     const initialState: LoginState = {
       ...AppInitialState.login,
-      isLoggingIn: true
+      isLogginIn: true
     };
     const user = new User();
     user.id = "anyId";
@@ -65,14 +66,14 @@ describe("Login store", () => {
     expect(newState).toEqual({
       ...initialState,
       isLoggedIn: true,
-      isLoggingIn: false
+      isLogginIn: false
     })
   })
 
   it('loginFail', () => {
     const initialState: LoginState = {
       ...AppInitialState.login,
-      isLoggingIn: true
+      isLogginIn: true
     };
     const error = {error: 'error'};
     const newState = loginReducer(initialState, loginFail({error}));
@@ -80,7 +81,7 @@ describe("Login store", () => {
       ...initialState,
       error,
       isLoggedIn: false,
-      isLoggingIn: false
+      isLogginIn: false
     })
   })
 })

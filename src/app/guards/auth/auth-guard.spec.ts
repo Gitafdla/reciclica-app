@@ -1,4 +1,4 @@
-import { AppState } from "./AppState";
+import { AppState } from "src/store/AppState";
 
 export const AppInitialState: AppState = {
     loading: {
